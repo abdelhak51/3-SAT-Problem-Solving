@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user_interface.MainController">
+   <children>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="DFS Algo">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox prefHeight="50.0" prefWidth="750.0" spacing="20.0" AnchorPane.bottomAnchor="521.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label text="number of instaces:" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </Label>
+                              <Spinner fx:id="spinnerDFS" prefHeight="25.0" prefWidth="61.0" />
+                              <Label text="TimeOut:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Slider fx:id="sliderDFS" blockIncrement="1000.0" majorTickUnit="2000.0" max="10000.0" min="2000.0" prefHeight="14.0" prefWidth="248.0" showTickLabels="true">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin></Slider>
+                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#processDFS" text="RUN">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Button>
+                              <Label fx:id="TimeDFS" prefHeight="27.0" prefWidth="102.0" text="Total Time ">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding></HBox>
+                        <ScrollPane hbarPolicy="ALWAYS" layoutX="25.0" layoutY="62.0" prefHeight="200.0" prefWidth="200.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                           <content>
+                              <VBox prefHeight="1200.0" prefWidth="764.0">
+                                 <children>
+                                    <LineChart fx:id="lineChartDFS" alternativeColumnFillVisible="true" title="accuracy of solution">
+                                      <xAxis>
+                                        <NumberAxis label="instences" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis autoRanging="false" label="accuracy" lowerBound="70.0" minorTickCount="10" side="LEFT" tickLength="10.0" upperBound="110.0" />
+                                      </yAxis>
+                                    </LineChart>
+                                    <AreaChart fx:id="barChartDFS" title="time exection for each instence">
+                                      <xAxis>
+                                        <NumberAxis autoRanging="true" label="instences" side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis label="time execution" side="LEFT" upperBound="200.0" />
+                                      </yAxis>
+                                    </AreaChart>
+                                    <PieChart fx:id="pieChartDFS" title="porsontage of solution " />
+                                    <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label text="Universite of algers -1- 2020/2021" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text=" A star Algo">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              	<children>
+                        <HBox prefHeight="50.0" prefWidth="750.0" spacing="20.0" AnchorPane.bottomAnchor="521.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label text="number of instaces:" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </Label>
+                              <Spinner fx:id="spinnerAstar" prefHeight="25.0" prefWidth="61.0" />
+                              <Label text="TimeOut:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Slider fx:id="sliderAstar" blockIncrement="1000.0" majorTickUnit="2000.0" max="10000.0" min="2000.0" prefHeight="14.0" prefWidth="248.0" showTickLabels="true">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin></Slider>
+                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#processAstar" text="RUN">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Button>
+                              <Label fx:id="TimeAstar" prefHeight="28.0" prefWidth="101.0" text="Total Time" />
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding></HBox>
+                        <ScrollPane hbarPolicy="ALWAYS" layoutX="25.0" layoutY="62.0" prefHeight="200.0" prefWidth="200.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                           <content>
+                              <VBox prefHeight="1200.0" prefWidth="764.0">
+                                 <children>
+                                    <LineChart fx:id="lineChartAstar" title="accuracy of solution">
+                                      <xAxis>
+                                        <NumberAxis label="instences" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis autoRanging="false" label="accuracy" lowerBound="70.0" minorTickCount="10" side="LEFT" tickLength="10.0" upperBound="110.0" />
+                                      </yAxis>
+                                    </LineChart>
+                                    <AreaChart fx:id="barChartAstar" title="time exection for each instence">
+                                      <xAxis>
+                                        <NumberAxis autoRanging="true" label="instences" side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis label="time execution" minorTickCount="3" side="LEFT" />
+                                      </yAxis>
+                                    </AreaChart>
+                                    <PieChart fx:id="pieChartAstar" title="porsontage of solution " />
+                                    <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label text="Universite of algers -1- 2020/2021" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                 </children>
+              </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="GA Algo ">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              	<children>
+              			 
+                 		<VBox alignment="TOP_CENTER" layoutX="36.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="750.0" spacing="10.0">
+                                 <children>
+                                    <Label text="POPULATION SIZE">
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Spinner fx:id="spinnerPopulationGA" prefHeight="25.0" prefWidth="68.0" />
+                                    <Label text="CROSSOVER CHANCE">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Spinner fx:id="spinnerCrossGA" prefHeight="25.0" prefWidth="65.0" />
+                                    <Label text="MUTATION CHANCE">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Spinner fx:id="spinnerMutatioGA" prefHeight="25.0" prefWidth="66.0" />
+                                    <Label text="SELECTION_SIZE">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Spinner fx:id="spinnerSelectionGA" prefHeight="25.0" prefWidth="66.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="750.0" spacing="10.0">
+                                 <children>
+                                    <Label text="number of instaces:" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Spinner fx:id="spinnerNbrInstenceGA" prefHeight="25.0" prefWidth="61.0" />
+                                    <Label text="TimeOut:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Slider fx:id="sliderGA" blockIncrement="1000.0" majorTickUnit="2000.0" max="10000.0" min="2000.0" prefHeight="14.0" prefWidth="248.0" showTickLabels="true" showTickMarks="true">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Slider>
+                                    <Button alignment="CENTER" mnemonicParsing="false" onAction="#processGA" text="RUN">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Label fx:id="TimeGA" text="Total Time..">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <ScrollPane hbarPolicy="ALWAYS" layoutX="25.0" layoutY="62.0" prefHeight="200.0" prefWidth="200.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+                           <content>
+                              <VBox prefHeight="1200.0" prefWidth="764.0">
+                                 <children>
+                                    <LineChart fx:id="lineChartGA" title="accuracy of solution">
+                                      <xAxis>
+                                        <NumberAxis label="instences" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis autoRanging="false" label="accuracy" lowerBound="70.0" minorTickCount="10" side="LEFT" tickLength="10.0" upperBound="110.0" />
+                                      </yAxis>
+                                    </LineChart>
+                                    <AreaChart fx:id="barChartGA" title="time exection for each instence">
+                                      <xAxis>
+                                        <NumberAxis autoRanging="true" label="instences" side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis label="time execution" side="LEFT" />
+                                      </yAxis>
+                                    </AreaChart>
+                                    <PieChart fx:id="pieChartGA" title="porsontage of solution " />
+                                    <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label text="Universite of algers -1- 2020/2021" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                        
+                </children>
+              </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="ACO Algo ">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" layoutX="36.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="750.0" spacing="10.0">
+                                 <children>
+                                    <Label text="ALPHA">
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Spinner fx:id="spinnerAlphaACS" prefHeight="25.0" prefWidth="68.0" />
+                                    <Label text="BETA">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Spinner fx:id="spinnerBetaACS" prefHeight="25.0" prefWidth="65.0" />
+                                    <Label text="V_RATE">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Spinner fx:id="spinnerVrateACS" prefHeight="25.0" prefWidth="66.0" />
+                                    <Label>
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="MAX_ITERATIONS">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Spinner fx:id="spinnerMaxIterACS" prefHeight="25.0" prefWidth="89.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="750.0">
+                                 <children>
+                                    <Label text="nbr of instaces:" textAlignment="CENTER">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Spinner fx:id="spinnerNbrInstenceACS" prefHeight="25.0" prefWidth="61.0" />
+                                    <Label prefHeight="25.0" prefWidth="69.0" text="ANT_COUNT" textAlignment="CENTER">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Spinner fx:id="spinnerAntCountACS" prefHeight="25.0" prefWidth="61.0" />
+                                    <Label text="Time Out:">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Slider fx:id="sliderTimeOutACS" blockIncrement="1000.0" majorTickUnit="2000.0" max="10000.0" min="2000.0" prefHeight="38.0" prefWidth="210.0" showTickLabels="true" showTickMarks="true">
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                    </Slider>
+                                    <Button alignment="CENTER" mnemonicParsing="false" onAction="#processACS" text="RUN">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Label fx:id="TimeACS" text="Total Time..">
+                                       <HBox.margin>
+                                          <Insets left="20.0" top="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <ScrollPane hbarPolicy="ALWAYS" layoutX="25.0" layoutY="62.0" prefHeight="200.0" prefWidth="200.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+                           <content>
+                              <VBox prefHeight="1200.0" prefWidth="764.0">
+                                 <children>
+                                    <LineChart fx:id="lineChartACS" title="accuracy of solution">
+                                       <xAxis>
+                                          <NumberAxis label="instences" />
+                                       </xAxis>
+                                       <yAxis>
+                                          <NumberAxis autoRanging="false" label="accuracy" lowerBound="70.0" minorTickCount="10" side="LEFT" tickLength="10.0" upperBound="110.0" />
+                                       </yAxis>
+                                    </LineChart>
+                                    <AreaChart fx:id="barChartACS" title="time exection for each instence">
+                                       <xAxis>
+                                          <NumberAxis autoRanging="true" label="instences" side="BOTTOM" />
+                                       </xAxis>
+                                       <yAxis>
+                                          <NumberAxis label="time execution" side="LEFT" />
+                                       </yAxis>
+                                    </AreaChart>
+                                    <PieChart fx:id="pieChartACS" title="porsontage of solution " />
+                                    <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label text="Universite of algers -1- 2020/2021" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+		  <Tab text="Comparaision graph">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="875.0" prefWidth="750.0">
+                     <children>
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <VBox alignment="TOP_CENTER" prefHeight="572.0" prefWidth="750.0" spacing="20.0">
+                                 <children>
+                                    <LineChart fx:id="comparatif_line_chart" focusTraversable="true" legendSide="TOP" prefHeight="450.0" prefWidth="727.0" title="Accuracy comparison between all algorithms ">
+                                      <xAxis>
+                                        <NumberAxis label="instences" minorTickCount="10" prefHeight="14.0" prefWidth="693.0" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis autoRanging="false" label="accuracy" lowerBound="70.0" minorTickCount="10" side="LEFT" upperBound="110.0" />
+                                      </yAxis>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </LineChart>
+                                    <Button mnemonicParsing="false" onAction="#processCompare" prefHeight="40.0" prefWidth="126.0" text="Compare">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Label text="Universite of algers -1- 2020/2021" />
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children></AnchorPane> 
+            </content>
+          </Tab>       
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
